@@ -1,0 +1,2 @@
+# Initial demo
+This is a proof of concept of communication between Arduino and Unreal Engine. In this demo, a button switch and a LED is connected to a Arduinos GPIO interface. You can turn on the LED by pressing '1', and off by '0' key within Unreal Engine. You can print '1' into Unreal Engine by pressing button switch in Arduino Breadboard.
