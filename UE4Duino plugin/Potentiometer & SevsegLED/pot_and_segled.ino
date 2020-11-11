@@ -12,7 +12,7 @@
    Use resistors with sevseg-led to avoid LED burnout
 */
 
-#include "SevSeg\SevSeg.h"
+#include "SevSeg.h"
 SevSeg sevseg;
 
 const int potPin = A0; //potentiometer middlepin
