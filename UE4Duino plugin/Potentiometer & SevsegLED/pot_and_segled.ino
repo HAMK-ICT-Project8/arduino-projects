@@ -4,12 +4,15 @@
    This code will check if user input is a valid number and then pass that information to sevseg-LED
    Potentiometer input is read continuously and printed to serial.
 
-   Potentiometer's middle pin is connected to analog pin. Analog input is 10 bits range 0-1023
-   analog output has acceptable range of 8 bits (0-255). Mapping function  will clamp the data.
+   How to connect potentiometer: Potentiometer's middle pin is connected to analog pin. Side pins 5V and ground
+   Analog input is 10 bits range 0-1023, analog output has acceptable range of 8 bits (0-255). 
+   Mapping function will clamp the data.
 
-   7-segment LED is used here with added (SevSeg.h) library: https://github.com/DeanIsMe/SevSeg
-   7-segment LED is connected to digital pins. Pins need to be given in section order a-h.
-   Use resistors with sevseg-led to avoid LED burnout
+   How to connect 7-segment LED: 7-segment LED is connected to digital pins. Display has a to h sections (8 pins). 
+   Pins need to be given in order at setup. Use resistors (220 ohm) between diplay pins and digital pins to avoid LED burnout. 
+   When using common anode display, middle pin is connected to 5V.
+   7-segment LED is used here with added (SevSeg) library: https://github.com/DeanIsMe/SevSeg
+   
 */
 
 #include "SevSeg.h"
