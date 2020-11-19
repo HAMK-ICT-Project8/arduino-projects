@@ -41,8 +41,8 @@ Data transfer between Arduino and computer is made via USB cable. To do this, a 
     TOP: G, F, Com, A, B
     BOTTOM: E, D, Com, C, DP(H)
 6. So do wire connections to digital pins this way:
-    TOP: 8, 7, 5V, 6, 5
-    BOTTOM: 9, 10, (empty) , 11, 12
+    **TOP**: 8, 7, 5V, 6, 5
+    **BOTTOM**: 9, 10, (empty) , 11, 12
 
 #### ARDUINO IDE
 1. Download library for [seven segment LED](https://github.com/DeanIsMe/SevSeg)
