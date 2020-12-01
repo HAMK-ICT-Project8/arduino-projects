@@ -5,6 +5,8 @@ This project connects physical world into virtual world wirelessly. In this proj
 
 Data transfer between Arduino and computer is made wirelessly in WiFi network. To do this, [Sparkfun ESP8266 WiFi shield](https://www.sparkfun.com/products/13287) and a plugin for TCP communication is needed. This demo uses [Socketer v0.4 plugin](https://github.com/How2Compute/Socketer) and [Unreal Engine 4.25.4](https://www.unrealengine.com/en-US/)
 
+_Note: Signal between UE and Arduino varies a lot. It is sometimes needed to send multiple commands before one is received by the other end. This happens also with Sparkfun ESP8266 Shield Demo so I came to conclusion that the reason is hardware related_
+
 ## Table of contents
 * [Dependencies](#dependencies)
 * [Installation](#installation)
