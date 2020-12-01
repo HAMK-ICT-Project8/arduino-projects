@@ -33,7 +33,7 @@ void setup()
   pinMode(potPin, INPUT);
 
   Serial.begin(9600);
-  serialTrigger(F("Press any key to begin."));
+  delay(2000);
 
   // initializeESP8266() verifies communication with the WiFi
   // shield, and sets it up.
