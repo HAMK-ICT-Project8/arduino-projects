@@ -16,8 +16,8 @@
 
 const int LEDPin = 11; //notifying light
 const int potPin = A0; // potentiometer middle pin
-const char mySSID[] = "Vierasverkko"; //network ssid
-const char myPSK[] = "JuhannusMakkara1"; //network password
+const char mySSID[] = "YOUR_NETWORK_SSID"; //network ssid
+const char myPSK[] = "YOUR_NETWORK_PWD"; //network password
 
 int lastValue = 0; //to remember last value from potentiometer
 int potValue; //potentiometer value
