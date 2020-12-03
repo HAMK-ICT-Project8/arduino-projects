@@ -51,7 +51,7 @@ _Note: Signal between UE and Arduino varies a lot. It is sometimes needed to sen
 4. Replace network settings to match yours: values of mySSID[] & myPSK[]
 4. Plugin USB cable and upload the code
 5. Start serial monitor
-6. Press a button + Enter after instructed
+6. If your network settings are correct server should start automatically
 7. Notify IP address that is shown, you need to apply it later to blueprint node
 
 
@@ -65,8 +65,9 @@ _Note: Signal between UE and Arduino varies a lot. It is sometimes needed to sen
 
 ## Usage
 
-1. Start Unreal Engine game level potWifi
-2. Use keyboard number 1 to send signal to Arduino to start using potentiometer
-3. Use potentiometer to adjust light in the game (3 sec timer, in use when LED lights up)
-4. Use keyboard button x to disconnect connection
-4. Values of potentiometer and states of notifying light are also printed in the screen
+1. Upload code to Arduino via USB cable. If code is already uploaded connect a power source and server should start
+2. Start Unreal Engine game level potWifi
+3. Use keyboard number 1 to send signal to Arduino to start using potentiometer
+4. Use potentiometer to adjust light in the game (3 sec timer, in use when LED lights up)
+5. Use keyboard button x to disconnect connection
+6. Values of potentiometer and states of notifying light are also printed in the screen
