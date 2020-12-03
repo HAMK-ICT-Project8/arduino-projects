@@ -1,4 +1,4 @@
-# Potentiometer via Wifi
+# Wireless potentiometer with Socketer
 Documentation is for Arduino <-> Unreal Engine project.
 
 This project connects physical world into virtual world wirelessly. In this project a player can send a command wirelessly to Arduino. When a player press keyboard number 1 it will give controls to Arduino potentiometer to adjust a light in the game. When a player press x on keyboard it will disconnect the connection.
