@@ -43,11 +43,11 @@ Data transfer between Arduino and computer is made via USB cable. To do this, a 
 
 ### Unreal Engine
 1. Download UE4Duino Plugin from [Github]((https://github.com/RVillani/UE4Duino))
-2. Start a new project in Unreal Engine
+2. Create a First Person project in Unreal Engine
 3. Create a folder named "Plugins" in the project directory and add UE4Duino plugin folder there
 4. Open Unreal Engine and enable plugin `Edit/Plugins` and restart Unreal Engine
-5. Add FirstPersonExampleMap_BuiltData.uasset and FirstPersonExampleMap.umap to `<your project>\Content`
-6. Open level blueprint. Change Serial port number to match your Arduino connection port.
+5. Add FirstPersonExampleMap_BuiltData.uasset and FirstPersonExampleMap.umap to `<your project>\Content\FirstPersonBP\Maps`
+6. Edit level blueprint in Unreal Engine. Change Serial port number to match your Arduino connection port.
 
 ## Usage
 
