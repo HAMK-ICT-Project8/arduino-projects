@@ -1,23 +1,48 @@
 # TCP Plugin simple connection
 This project connects the arduino board with the sparksfun wifi shield as a tcp server to the unreal engine using the tcp-plugin.
 
-Requirements:
-- Arduino UNO
-- Sparksfun wifi shield
-- Unreal engine (v 4.25)
-- TCP Plugin
+## Dependencies
+### Hardware
+* Arduino UNO
+* Sparkfun ESP8266 WiFi shield
 
-Tested on:
-- Mac OS ✅
+### Software
+
+#### Unreal Engine
+* TCP Plugin from unreal engine marketplace
+
+#### Arduino Uno
+* [Arduino IDE](https://www.arduino.cc/en/software)
+
+#### Sparkfun ESP8266 WiFi shield
+* [Library and instructions for Sparkfun ESP8266 WiFi shield](https://learn.sparkfun.com/tutorials/esp8266-wifi-shield-hookup-guide?_ga=2.232777183.154801248.1606463257-1158639612.1605182896#installing-the-esp8266-at-library)
 
 ## Setup
 
 ### Arduino
-Edit the wifi.ino to set the wifi credentials for your wifi on line 36 and 37 and then flash it on the arduino.
-Open the serial monitor and follow the instructions to start the tcp server.
+
+#### Hardware
+1. Attach WiFi shield in top of Arduino board
+
+#### ARDUINO IDE
+1. Download library for [Sparkfun ESP8266 WiFi shield](https://learn.sparkfun.com/tutorials/esp8266-wifi-shield-hookup-guide?_ga=2.232777183.154801248.1606463257-1158639612.1605182896#installing-the-esp8266-at-library)
+2. Add Sparkfun library to Arduino directory `C:\Program Files (x86)\Arduino\libraries`
+3. Open [code](https://github.com/HAMK-ICT-Project8/arduino-scripts/blob/main/Socketer/Wireless%20Potentiometer/wifiPotTimer.ino) in Adruino IDE
+4. Replace network settings to match yours: values of mySSID[] & myPSK[]
+4. Plugin USB cable and upload the code
+5. Start serial monitor
+6. If your network settings are correct server should start automatically
+7. Notify IP address that is shown, you need to apply it later to blueprint node
 
 ### Unreal engine
-Create a new asset in the content manager and select blueprint class and search then for tcp (see screenshots). Add the newly created component to the scene and then edit its blueprint by double-clicking the component according to the screenshot. you should then see the html code sent from the arduino-tcp-server printed as a string.
+1. Download the TCP Plugin from the unreal engine marketplace.
+2. Create a new project and start it.
+3. Open Unreal Engine and enable plugin `Edit/Plugins` and restart Unreal Engine
+4. Create a new asset in the content manager and select blueprint class and search then for tcp (see screenshots).
+5. Add the newly created component to the scene
+6. Then edit its blueprint by double-clicking the component according to the screenshot.
+7. Run it
+8. You should then see the html code sent from the arduino-tcp-server printed as a string.
 
 ## Caveat
 The school network prevents setting up tcp servers, so there is no chance for that to work in the HAMKVisitor or Eduroam networks.
