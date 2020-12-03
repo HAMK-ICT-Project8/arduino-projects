@@ -17,6 +17,7 @@ Tested on:
 ## Setup
 
 ### Arduino
+Setup the arduino board according to this blog post: https://www.dfrobot.com/blog-648.html you can ignore the arduino code, because it will be replaced by the code from this repository. Just make sure to use the right pins.
 Flash the arduino script provided in this repository on the arduino board and then try to connect to it via your devices bluetooth menu.
 Once connected, you need to find the port-name assigned to it and remember it / write it down / copy it.
 There should now be a consistent yellow led on the bluetooth module.
@@ -26,6 +27,6 @@ As the bluetooth connection is also handled via the communication ports the same
 
 In the screenshot provided it also handles the input received via the communication port and branches according to it.
 
-#### Caveat
+### Caveat
 Because the bluetooth.send method adds a linebreak character at the end of every message, it must be stripped before checking the received string in unreal engine.
 This is done with the "left chop" component in the screenshot.
