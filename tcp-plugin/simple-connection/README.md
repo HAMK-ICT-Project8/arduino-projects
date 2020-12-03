@@ -26,7 +26,7 @@ This project connects the arduino board with the sparksfun wifi shield as a tcp 
 
 #### ARDUINO IDE
 1. Download library for [Sparkfun ESP8266 WiFi shield](https://learn.sparkfun.com/tutorials/esp8266-wifi-shield-hookup-guide?_ga=2.232777183.154801248.1606463257-1158639612.1605182896#installing-the-esp8266-at-library)
-2. Add Sparkfun library to Arduino directory `C:\Program Files (x86)\Arduino\libraries`
+2. Add Sparkfun library to Arduino directory `<Path to your arduino folder>\Arduino\libraries`
 3. Open [code](https://github.com/HAMK-ICT-Project8/arduino-scripts/blob/main/Socketer/Wireless%20Potentiometer/wifiPotTimer.ino) in Adruino IDE
 4. Replace network settings to match yours: values of mySSID[] & myPSK[]
 4. Plugin USB cable and upload the code
