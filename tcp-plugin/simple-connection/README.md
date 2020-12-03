@@ -17,7 +17,7 @@ Edit the wifi.ino to set the wifi credentials for your wifi on line 36 and 37 an
 Open the serial monitor and follow the instructions to start the tcp server.
 
 ### Unreal engine
-Create a new asset in the content manager and select blueprint->blueprint class and search then for tcp. Add the newly created component to the scene and then edit its blueprint according to the screenshot. you should then see the html code sent from the arduino-tcp-server printed as a string.
+Create a new asset in the content manager and select blueprint class and search then for tcp. Add the newly created component to the scene and then edit its blueprint according to the screenshot. you should then see the html code sent from the arduino-tcp-server printed as a string.
 
 ## Caveat
 The school network prevents setting up tcp servers, so there is no chance for that to work in the HAMKVisitor or Eduroam networks.
