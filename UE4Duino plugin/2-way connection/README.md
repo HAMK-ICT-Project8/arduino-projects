@@ -1,7 +1,7 @@
 # 2-way connection between Unreal Engine and Arduino
 Documentation is for Arduino <-> Unreal Engine project.
 
-This is a proof of concept of communication between Arduino and Unreal Engine. In this demo, a Pushbutton and a LED is connected to a Arduinos GPIO interface. You can turn on the LED by pressing '1', and off by '0' key within Unreal Engine. You can print '2' into Unreal Engine by pressing button switch in Arduino Breadboard, and '3' by releasing the button.
+This is a proof of concept of communication between Arduino and Unreal Engine. In this demo, a Pushbutton and a LED is connected to a Arduinos GPIO interface. You can turn LED on and off by pressing 1 and 2 within Unreal Engine. You can print '2' and '3' into Unreal Engine by pressing and releasing Pushbutton in Arduino.
 
 Data transfer between Arduino and computer is made via USB cable. To do this, a plugin for COM communication is needed. This demo uses [UE4Duino 2.2.5 plugin](https://github.com/RVillani/UE4Duino) and [Unreal Engine 4.25.4](https://www.unrealengine.com/en-US/)
 
