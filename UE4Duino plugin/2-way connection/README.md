@@ -38,7 +38,7 @@ Data transfer between Arduino and computer is made via USB cable. To do this, a 
 #### ARDUINO IDE
 1. Open UE4Connect.ino in Adruino IDE
 2. Check the port to match your Arduino connection port.
-3. Plugin USB cable and upload the code
+3. Plugin Arduino via USB cable and upload the code
 
 
 ### Unreal Engine
@@ -53,5 +53,5 @@ Data transfer between Arduino and computer is made via USB cable. To do this, a 
 
 1. Start Unreal Engine game level.
 2. Use keyboard numbers 1 and 0 to turn LED on and off.
-3. Use Pushbutton to send data to Unreal Engine screen.
-4. Values of keyboard presses and pushbutton are printed in the screen.
+3. Use Pushbutton to send data to Unreal Engine.
+4. Values of keyboard and pushbutton presses are printed in the screen.
