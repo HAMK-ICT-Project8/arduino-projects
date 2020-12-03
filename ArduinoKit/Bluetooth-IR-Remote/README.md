@@ -13,13 +13,17 @@ Requirements:
 
 Tested on:
  - Mac OS ✅
- 
+
 ## Setup
 
 ### Arduino
 Setup the arduino board according to this blog post: https://www.dfrobot.com/blog-648.html you can ignore the arduino code, because it will be replaced by the code from this repository. Just make sure to use the right pins.
 Flash the arduino script provided in this repository on the arduino board and then try to connect to it via your devices bluetooth menu.
 Once connected, you need to find the port-name assigned to it and remember it / write it down / copy it.
+
+#### Find bluetooth portname on Mac OS
+Open up a terminal an type in `cd /dev` and then run `ls` and in this list you should find something starting with `tty.` and then something relatable to bluetooth/arduino.
+
 There should now be a consistent yellow led on the bluetooth module.
 
 ### Unreal Engine
