@@ -33,10 +33,11 @@ Open up a terminal an type in `cd /dev` and then run `ls` and in this list you s
 7. There should now be a consistent yellow led on the bluetooth module.
 
 ### Unreal Engine
-As the bluetooth connection is also handled via the communication ports the same way the usb ports are handled, you can just paste the bluetooth port-name from the arduino setup in the connection blueprint component.
-
-In the screenshot provided it also handles the input received via the communication port and branches according to it.
+1. Download the ArduinoKit plugin from here: https://github.com/HAMK-ICT-Project8/ArduinoKit and follow its instructions.
+2. Open the blueprint edit menu and set it up as shown in the screenshot.
+3. Run it
+4. You should then be able to turn the light on and off with the IR-Remote.
 
 ### Caveat
-Because the bluetooth.send method adds a linebreak character at the end of every message, it must be stripped before checking the received string in unreal engine.
-This is done with the "left chop" component in the screenshot.
+Be aware that the IR-Remote might send multiple signals if you press the buttons too long and it will toggle the light twice.
+Also sometimes the IR-Signal is misinterpreted by the IR-Receiver which leads to unrecognized codes not doing anything.
