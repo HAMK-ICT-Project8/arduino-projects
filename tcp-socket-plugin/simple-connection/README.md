@@ -1,5 +1,5 @@
-# TCP Plugin simple connection
-This project connects the arduino board with the sparksfun wifi shield as a tcp server to the unreal engine using the tcp-plugin.
+# TCP-Socket Plugin simple connection
+This project connects the arduino board with the sparksfun wifi shield as a tcp server to the unreal engine using the tcp-plugin. The unreal engine project will connect to the tcp server using the TCP-Socket Plugin and will send a request to the server running on the arduino board which then will respond with a simple message and then close the connection.
 
 ## Dependencies
 ### Hardware
@@ -35,14 +35,15 @@ This project connects the arduino board with the sparksfun wifi shield as a tcp 
 7. Notify IP address that is shown, you need to apply it later to blueprint node
 
 ### Unreal engine
-1. Download the TCP Plugin from the unreal engine marketplace.
+1. Download the TCP-Socket Plugin from the unreal engine marketplace. https://www.unrealengine.com/marketplace/en-US/product/tcp-socket-plugin#
 2. Create a new project and start it.
 3. Open Unreal Engine and enable plugin `Edit/Plugins` and restart Unreal Engine
 4. Create a new asset in the content manager and select blueprint class and search then for tcp (see screenshots).
 5. Add the newly created component to the scene
 6. Then edit its blueprint by double-clicking the component according to the screenshot.
-7. Run it
-8. You should then see the html code sent from the arduino-tcp-server printed as a string.
+7. Make sure to replace the IP Address to match the previously noted IP Address from the arduino server.
+8. Run it
+9. You should then see the html code sent from the arduino-tcp-server printed as a string.
 
 ## Caveat
 The school network prevents setting up tcp servers, so there is no chance for that to work in the HAMKVisitor or Eduroam networks.

@@ -33,8 +33,8 @@ Distributed as-is; no warranty is given.
 //////////////////////////////
 // Replace these two character strings with the name and
 // password of your WiFi network.
-const char mySSID[] = "YOUR WIFI NETWORK NAME";
-const char myPSK[] = "YOUR WIFI PRESHARED KEY";
+const char mySSID[] = "CGA2121_nQbUnvq";
+const char myPSK[] = "gt9kzHJ97kFJqddDTk";
 
 //////////////////////////////
 // ESP8266Server definition //
@@ -66,7 +66,6 @@ void setup()
   // Serial Monitor is used to control the demo and view
   // debug information.
   Serial.begin(9600);
-  serialTrigger(F("Press any key to begin."));
 
   // initializeESP8266() verifies communication with the WiFi
   // shield, and sets it up.
@@ -74,15 +73,6 @@ void setup()
 
   // connectESP8266() connects to the defined WiFi network.
   connectESP8266();
-
-  // displayConnectInfo prints the Shield's local IP
-  // and the network it's connected to.
-  displayConnectInfo();
-
-  serialTrigger(F("Press any key to connect client."));
-  clientDemo();
-
-  serialTrigger(F("Press any key to test server."));
   serverSetup();
 }
 
@@ -153,60 +143,6 @@ void connectESP8266()
   }
 }
 
-void displayConnectInfo()
-{
-  char connectedSSID[24];
-  memset(connectedSSID, 0, 24);
-  // esp8266.getAP() can be used to check which AP the
-  // ESP8266 is connected to. It returns an error code.
-  // The connected AP is returned by reference as a parameter.
-  int retVal = esp8266.getAP(connectedSSID);
-  if (retVal > 0)
-  {
-    Serial.print(F("Connected to: "));
-    Serial.println(connectedSSID);
-  }
-
-  // esp8266.localIP returns an IPAddress variable with the
-  // ESP8266's current local IP address.
-  IPAddress myIP = esp8266.localIP();
-  Serial.print(F("My IP: "));
-  Serial.println(myIP);
-}
-
-void clientDemo()
-{
-  // To use the ESP8266 as a TCP client, use the
-  // ESP8266Client class. First, create an object:
-  ESP8266Client client;
-
-  // ESP8266Client connect([server], [port]) is used to
-  // connect to a server (const char * or IPAddress) on
-  // a specified port.
-  // Returns: 1 on success, 2 on already connected,
-  // negative on fail (-1=TIMEOUT, -3=FAIL).
-  int retVal = client.connect(destServer, 80);
-  if (retVal <= 0)
-  {
-    Serial.println(F("Failed to connect to server."));
-    return;
-  }
-
-  // print and write can be used to send data to a connected
-  // client connection.
-  client.print(httpRequest);
-
-  // available() will return the number of characters
-  // currently in the receive buffer.
-  while (client.available())
-    Serial.write(client.read()); // read() gets the FIFO char
-
-  // connected() is a boolean return value - 1 if the
-  // connection is active, 0 if it's closed.
-  if (client.connected())
-    client.stop(); // stop() closes a TCP connection.
-}
-
 void serverSetup()
 {
   // begin initializes a ESP8266Server object. It will
@@ -242,21 +178,7 @@ void serverDemo()
         // so you can send a reply
         if (c == '\n' && currentLineIsBlank)
         {
-          Serial.println(F("Sending HTML page"));
-          // send a standard http response header:
-          client.print(htmlHeader);
-          String htmlBody;
-          // output the value of each analog input pin
-          for (int a = 0; a < 6; a++)
-          {
-            htmlBody += "A";
-            htmlBody += String(a);
-            htmlBody += ": ";
-            htmlBody += String(analogRead(a));
-            htmlBody += "<br>\n";
-          }
-          htmlBody += "</html>\n";
-          client.print(htmlBody);
+          client.print("Hello from Server");
           break;
         }
         if (c == '\n')
@@ -288,17 +210,4 @@ void errorLoop(int error)
   Serial.println(F("Looping forever."));
   for (;;)
     ;
-}
-
-// serialTrigger prints a message, then waits for something
-// to come in from the serial port.
-void serialTrigger(String message)
-{
-  Serial.println();
-  Serial.println(message);
-  Serial.println();
-  while (!Serial.available())
-    ;
-  while (Serial.available())
-    Serial.read();
 }
