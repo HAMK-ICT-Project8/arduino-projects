@@ -1,11 +1,9 @@
-# Wireless potentiometer with Socketer
+# Ambient LED via Bluetooth
 Documentation is for Arduino <-> Unreal Engine project.
 
-This project connects physical world into virtual world wirelessly. In this project a player can send a command wirelessly to Arduino. When a player press keyboard number 1 it will give controls to Arduino potentiometer to adjust a light in the game. When a player press x on keyboard it will disconnect the connection.
+This project connects physical world into virtual world wirelessly via bluetooth. In this project ambient LED is used on Arduino to detect surrounding light level. This value is used to control a light in a gameworld. Player can also send values from the game back to Arduino. When player presses keyboard number 1 the value will be printed in Arduino Serial Monitor. 
 
-Data transfer between Arduino and computer is made wirelessly in WiFi network. To do this, [Sparkfun ESP8266 WiFi shield](https://www.sparkfun.com/products/13287) and a plugin for TCP communication is needed. This demo uses [Socketer v0.4 plugin](https://github.com/How2Compute/Socketer) and [Unreal Engine 4.25.4](https://www.unrealengine.com/en-US/)
-
-_Note: Signal between UE and Arduino varies a lot. It is sometimes needed to send multiple commands before one is received by the other end. This happens also with Sparkfun ESP8266 Shield Demo so I came to conclusion that the reason is hardware related_
+All data transfer between Arduino and Unreal Engine is made wirelessly using bluetooth connection. To do this, [Sparkfun Bluetooth Mate Silver](https://www.sparkfun.com/products/12576?_ga=2.249061124.245259742.1607244308-1158639612.1605182896) and a plugin for COM port communication is needed. This demo uses [Unreal Engine 4.25.4](https://www.unrealengine.com/en-US/) with marketplace's [Cluster communication Port plugin](https://docs.unrealengine.com/marketplace/en-US/product/cluster-communication-port?lang=en-US). The plugin costs around 26€.
 
 ## Table of contents
 * [Dependencies](#dependencies)
@@ -15,59 +13,67 @@ _Note: Signal between UE and Arduino varies a lot. It is sometimes needed to sen
 ## Dependencies
 
 ### Hardware
-* Potentiometer
-* LED light
-* 220R resistor
-* Jumper cables x 5
-* Breadboard
-* Sparkfun ESP8266 WiFi shield
+* Ambient LED light
+* 10k resistor
+* Jumper cables x 7
+* Protoshield (Not mandatory)
+* Sparkfun Bluetooth Mate Silver
 
 ### Software
 
 #### Unreal Engine
-* [Socketer v0.4 plugin](https://github.com/How2Compute/Socketer)
+* [Cluster communication Port plugin](https://docs.unrealengine.com/marketplace/en-US/product/cluster-communication-port?lang=en-US)
 
 #### Arduino Uno
 * [Arduino IDE](https://www.arduino.cc/en/software)
 
-#### Sparkfun ESP8266 WiFi shield
-* [Library and instructions for Sparkfun ESP8266 WiFi shield](https://learn.sparkfun.com/tutorials/esp8266-wifi-shield-hookup-guide?_ga=2.232777183.154801248.1606463257-1158639612.1605182896#installing-the-esp8266-at-library)
+#### Sparkfun Bluetooth Mate Silver
+* [Instructions for Sparkfun Bluetooth](https://learn.sparkfun.com/tutorials/using-the-bluesmirf?_ga=2.139351216.245259742.1607244308-1158639612.1605182896)
 
 ## Installation
 
 ### Arduino
 
 #### Hardware
-1. Attach WiFi shield in top of Arduino board
-2. Connect potentiometer with jumper cables. Side pins are connected to ground(left leg) and 5V(right leg). Middle pin is connected to analog pin A0
-3. Connect 220R resistor and LED light so it's longer leg is connected to resistor
-4. Add jumper cable from digital pin 11 to other end or resistor
-5. Add the last jumper cable from ground to shorter leg of LED light
+1. Attach Protoshield on top of the Arduino board
+2. Add 10k resistor on the protoshield
+3. Add ambient LED light on protoshield so it's longer leg is in same section with resistor's leg with thin stripe
+4. Connect Bluetooth Mate Silver with jumper cables: 
+    VCC -> 5V
+    GND -> Ground
+    RX-I -> Digital Pin 3
+    TX-O -> Digital Pin 2
+5. Connect last jumper cables:
+    Resistor -> 5V
+    LED + resistor -> Analog pin 0
+    LED shorter leg -> Ground
 
 #### ARDUINO IDE
-1. Download library for [Sparkfun ESP8266 WiFi shield](https://learn.sparkfun.com/tutorials/esp8266-wifi-shield-hookup-guide?_ga=2.232777183.154801248.1606463257-1158639612.1605182896#installing-the-esp8266-at-library)
-2. Add Sparkfun library to Arduino directory `C:\Program Files (x86)\Arduino\libraries`
-3. Open [code](https://github.com/HAMK-ICT-Project8/arduino-scripts/blob/main/Socketer/Wireless%20Potentiometer/wifiPotTimer.ino) in Adruino IDE
-4. Replace network settings to match yours: values of mySSID[] & myPSK[]
-4. Plugin USB cable and upload the code
-5. Start serial monitor
-6. If your network settings are correct server should start automatically
-7. Notify IP address that is shown, you need to apply it later to blueprint node
+1. Open [code](https://github.com/HAMK-ICT-Project8/arduino-projects/tree/main/Cluster%20Communication%20Port/Ambient%20LED%20via%20BT/ambientBT.ino) in Adruino IDE
+2. Plugin USB cable and upload the code
 
+### Bluetooth pairing
+1. Open up your computer's bluetooth settings. In Windows 10, right-click Bluetooth icon in toolbar -> "Add Device"
+2. In "Settings" window click "Add Bluetooth Device"
+3. Select Sparkfun Bluetooth module
+4. Check which port was assigned to it. On the right side of "Settings" window click "More Bluetooth Settings"
+5. In Bluetooth Settings window go to "Serial ports" tab
+6. You have now two ports assigned to the bluetooth module, note port number of the one with outgoing data
 
-#### Unreal Engine
-1. Download Socketer Plugin from [Github](https://github.com/How2Compute/Socketer)
+### Unreal Engine
+1. Buy [Cluster communication Port plugin](https://docs.unrealengine.com/marketplace/en-US/product/cluster-communication-port?lang=en-US)
 2. Start a new project in Unreal Engine
-3. Create a folder named "Plugins" in the project directory and add Socketer plugin folder there
+3. Create a folder named "Plugins" in the project directory and add Cluster Communication Port plugin folder there
 4. Open Unreal Engine and enable plugin `Edit/Plugins` and restart Unreal Engine
-5. Add [potWifi.umap](https://github.com/HAMK-ICT-Project8/arduino-scripts/blob/main/Socketer/Wireless%20Potentiometer/potWifi.umap) and [potWifi_BuiltData.uasset](https://github.com/HAMK-ICT-Project8/arduino-scripts/blob/main/Socketer/Wireless%20Potentiometer/potWifi_BuiltData.uasset) to `<your project>\Content`
-6. Open level blueprint and change IP to match the one your WiFi shield has
+5. Add [AmbientLEDviaBT.uasset](https://github.com/HAMK-ICT-Project8/arduino-projects/tree/main/Cluster%20Communication%20Port/Ambient%20LED%20via%20BT/AmbientLEDviaBT.uasset) to `<your project>\Content`
+6. In Unreal Engine open AmbientLEDviaBT blueprint class and change port number to match the one that your Bluetooth module has
 
 ## Usage
 
-1. Upload code to Arduino via USB cable. If code is already uploaded connect a power source and server should start
-2. Start Unreal Engine game level potWifi
-3. Use keyboard number 1 to send signal to Arduino to start using potentiometer
-4. Use potentiometer to adjust light in the game (3 sec timer, in use when LED lights up)
-5. Use keyboard button x to disconnect connection
-6. Values of potentiometer and states of notifying light are also printed in the screen
+1. Upload code to Arduino via USB cable. If code is already uploaded connect a power source and bluetooth will be ready to use
+2. Pair your computer with Bluetooth module
+3. Buy and add Cluster Com Port plugin in to your Unreal Engine project
+4. Start your Unreal Engine project with AmbientLEDviaBT included
+5. Use keyboard number 1 to send signal to Arduino
+6. Intensity of light in the game will change according to ambient LED and value printed in screen
+7. If light in the game will not change properly, check that level does not have other light sources mixing up the scene
