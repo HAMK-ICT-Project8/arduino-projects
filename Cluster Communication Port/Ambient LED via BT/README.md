@@ -5,6 +5,8 @@ This project connects physical world into virtual world wirelessly via bluetooth
 
 All data transfer between Arduino and Unreal Engine is made wirelessly using bluetooth connection. To do this, [Sparkfun Bluetooth Mate Silver](https://www.sparkfun.com/products/12576?_ga=2.249061124.245259742.1607244308-1158639612.1605182896) and a plugin for COM port communication is needed. This demo uses [Unreal Engine 4.25.4](https://www.unrealengine.com/en-US/) with marketplace's [Cluster communication Port plugin](https://docs.unrealengine.com/marketplace/en-US/product/cluster-communication-port?lang=en-US). The plugin costs around 26€.
 
+_Note: Bluetooth module has for default 1 min timeout in use, this can be modified following Sparkfun tutorial. Values that light sensor gives depends on the input voltage, resistors and the light source combination. If your bluetooth device is connected properly but the light in Unreal is not adjusting like it should, you need to modify blueprint map node or the useAmbientLED function in the Arduino code to match your current circumstances_
+
 ## Table of contents
 * [Dependencies](#dependencies)
 * [Installation](#installation)
@@ -55,7 +57,7 @@ All data transfer between Arduino and Unreal Engine is made wirelessly using blu
 ### Bluetooth pairing
 1. Open up your computer's bluetooth settings. In Windows 10, right-click Bluetooth icon in toolbar -> "Add Device"
 2. In "Settings" window click "Add Bluetooth Device"
-3. Select Sparkfun Bluetooth module
+3. Select Sparkfun Bluetooth module, default password is 1234
 4. Check which port was assigned to it. On the right side of "Settings" window click "More Bluetooth Settings"
 5. In Bluetooth Settings window go to "Serial ports" tab
 6. You have now two ports assigned to the bluetooth module, note port number of the one with outgoing data
