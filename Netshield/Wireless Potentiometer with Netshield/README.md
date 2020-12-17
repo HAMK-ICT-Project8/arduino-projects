@@ -7,4 +7,4 @@ Data transfer between Arduino and computer is made wirelessly in WiFi network. T
 
 _Note: Signal between UE and Arduino varies a lot. It is sometimes needed to send multiple commands before one is received by the other end. This happens also with Sparkfun ESP8266 Shield Demo so I came to conclusion that the reason is hardware related_
 
-### This project is based in [Wireless potentiometer](https://github.com/HAMK-ICT-Project8/arduino-scripts/tree/main/Socketer/Wireless%20Potentiometer) so the setup and usage is almost identical. Follow instructions listed in that project and all you need to do is replace .uasset & .umap files.
+### This project is based in [Wireless potentiometer](https://github.com/HAMK-ICT-Project8/arduino-projects/tree/main/Socketer/Wireless%20Potentiometer) so the setup and usage is almost identical. Follow instructions listed in that project and all you need to do is replace .uasset & .umap files.

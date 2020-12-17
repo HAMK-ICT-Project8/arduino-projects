@@ -51,7 +51,7 @@ _Note: Bluetooth module has for default 1 min timeout in use, this can be modifi
     LED shorter leg -> Ground
 
 #### ARDUINO IDE
-1. Open [code](https://github.com/HAMK-ICT-Project8/arduino-projects/tree/main/Cluster%20Communication%20Port/Ambient%20LED%20via%20BT/ambientBT.ino) in Adruino IDE
+1. Open [code](./ambientBT.ino) in Adruino IDE
 2. Plugin USB cable and upload the code
 
 ### Bluetooth pairing
@@ -67,7 +67,7 @@ _Note: Bluetooth module has for default 1 min timeout in use, this can be modifi
 2. Start a new project in Unreal Engine
 3. Create a folder named "Plugins" in the project directory and add Cluster Communication Port plugin folder there
 4. Open Unreal Engine and enable plugin `Edit/Plugins` and restart Unreal Engine
-5. Add [AmbientLEDviaBT.uasset](https://github.com/HAMK-ICT-Project8/arduino-projects/tree/main/Cluster%20Communication%20Port/Ambient%20LED%20via%20BT/AmbientLEDviaBT.uasset) to `<your project>\Content`
+5. Add [AmbientLEDviaBT.uasset](./AmbientLEDviaBT.uasset) to `<your project>\Content`
 6. In Unreal Engine open AmbientLEDviaBT blueprint class and change port number to match the one that your Bluetooth module has
 
 ## Usage
